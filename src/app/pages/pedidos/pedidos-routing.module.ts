@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: PedidosPage
+  },
+  {
+    path: 'modal-page',
+    loadChildren: () => import('./modal-page/modal-page.module').then( m => m.ModalPagePageModule)
   }
 ];
 
