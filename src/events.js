@@ -117,6 +117,21 @@ function createRouter(db) {
       }
     );
   });
+  //Buscar pedido pagado
+  router.get('/pedidos/:estado', function (req, res, next) {
+    db.query(
+      'SELECT * FROM pedidos where estado=?	',
+      [req.params.estado],
+      (error, results) => {
+        if (error) {
+          console.log(error);
+          res.status(500).json({ status: 'error' });
+        } else {
+          res.status(200).json(results);
+        }
+      }
+    );
+  });
 
   //insertar lineapedidos
   router.post('/lineaPedidos', (req, res, next) => {

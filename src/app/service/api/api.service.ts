@@ -64,6 +64,11 @@ export class ApiService {
      return this.http.post<any>(this.url+'/changeProduct',body,{'headers':headers})
   
     }
+    '/pedidos/:estado'
+    getOrderPay(estado:string):Observable<listaPedidos[]>{
+      return this.http.get<listaPedidos[]>(this.url + `/pedidos/${estado}`);
+  
+    }
   //ejemplos
   getAllUser():Observable<listaUser[]>{
     return this.http.get<listaUser[]>(this.url);

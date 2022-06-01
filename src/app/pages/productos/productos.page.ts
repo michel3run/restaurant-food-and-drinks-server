@@ -12,10 +12,7 @@ export class ProductosPage implements OnInit {
   disponibles = []
   constructor(private menu: MenuService, private api: ApiService) {
   }
-/*
-var disponible = document.getElementById(String(item.id)) as HTMLIonToggleElement
-          console.log(disponible.checked.valueOf())
-*/
+
   ngOnInit() {
     this.menu.showMenu = true
     this.api.getProductAll().subscribe((data) => {

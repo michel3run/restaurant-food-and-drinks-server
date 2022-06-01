@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class MenuService {
   userID:number
-  ischeck:boolean=false
   showMenu:boolean =false;
   constructor() {
    }
