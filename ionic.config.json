@@ -1,0 +1,8 @@
+{
+  "name": " restaurant-food-and-drinks-server",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "f847d65f"
+}
