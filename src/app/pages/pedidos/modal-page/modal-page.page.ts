@@ -13,7 +13,7 @@ export class ModalPagePage implements OnInit {
   constructor(private api: ApiService,private menu : MenuService) { }
 
   ngOnInit() {
-    this.api.getTicket(29).subscribe((data) => {
+    this.api.getTicket(this.menu.pedidoID).subscribe((data) => {
       for (let item of data) {
         this.pedido.push(item.nombre);
       }
