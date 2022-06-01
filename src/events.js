@@ -163,6 +163,22 @@ function createRouter(db) {
       }
     );
   });
+
+    //Buscar el ticket del pedido en linea pedido
+    router.get('/lineapedido/:idPedido', function (req, res, next) {
+      db.query(
+        'SELECT * FROM productos JOIN lineapedidos ON productos.id=lineapedidos.idProductos WHERE lineapedidos.idPedidos=?	',
+        [req.params.idPedido],
+        (error, results) => {
+          if (error) {
+            console.log(error);
+            res.status(500).json({ status: 'error' });
+          } else {
+            res.status(200).json(results);
+          }
+        }
+      );
+    });
   //ejemplos
   router.get('/user', function (req, res, next) {
     db.query(

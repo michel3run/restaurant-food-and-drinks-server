@@ -57,16 +57,22 @@ export class ApiService {
   
     }
 
-    
+    //Actualizar booleano de disponible de productos
     updateCheck(disponible:string,id:number):Observable<listaPedidos[]>{
       const headers = { 'content-type': 'application/json'} 
     const body = { disponible: disponible ,id:id };
      return this.http.post<any>(this.url+'/changeProduct',body,{'headers':headers})
   
     }
-    '/pedidos/:estado'
+    
     getOrderPay(estado:string):Observable<listaPedidos[]>{
       return this.http.get<listaPedidos[]>(this.url + `/pedidos/${estado}`);
+  
+    }
+
+    //Buscar ticket
+    getTicket(idPedido:number):Observable<listaProductos[]>{
+      return this.http.get<listaProductos[]>(this.url + `/lineapedido/${idPedido}`);
   
     }
   //ejemplos
