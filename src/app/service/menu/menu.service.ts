@@ -5,10 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class MenuService {
   userID:number
-  ticket= []
-  platos={}
+  ischeck:boolean=false
   showMenu:boolean =false;
-  cuentaTotal=0;
   constructor() {
    }
   

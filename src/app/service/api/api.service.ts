@@ -20,13 +20,16 @@ export class ApiService {
     return this.http.get<listaUser[]>(this.url + `/login/${email}/${pass}`);
 
   }
-
-  //Todos los productos
+   //Todos los productos
+  getProductAll():Observable<listaProductos[]>{
+    return this.http.get<listaProductos[]>(this.url + '/productosAll' );
+  }
+  //Todos los productos por id y  disponible
   getAllProduct(tipo:string):Observable<listaProductos[]>{
     return this.http.get<listaProductos[]>(this.url + `/productos/${tipo}`);
   }
 
-  //Porducto por id 
+  //buscar por id 
   getProductID(id:string):Observable<listaProductos[]>{
     return this.http.get<listaProductos[]>(this.url + `/productosID/${id}`);
 

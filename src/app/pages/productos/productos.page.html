@@ -1,9 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>productos</ion-title>
+    <ion-title>Listado de nuestro Productos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <ion-item  *ngFor="let item of productos; let i =index">
+      <ion-label >
+        {{item}}
+      </ion-label>
+      <ion-toggle  color="light" checked = "{{menu.ischeck}}"></ion-toggle>
 
+    </ion-item>
+
+  </ion-list>
 </ion-content>

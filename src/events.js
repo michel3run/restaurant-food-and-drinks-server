@@ -37,11 +37,26 @@ function createRouter(db) {
       }
     );
   });
+//Listar todos los productos 
+router.get('/productosAll', function (req, res, next) {
+  db.query(
+    'SELECT * FROM productos',
+    [req.params.tipo],
 
+    (error, results) => {
+      if (error) {
+        console.log(error);
+        res.status(500).json({ status: 'error' });
+      } else {
+        res.status(200).json(results);
+      }
+    }
+  );
+});
   //Listar todos los productos segun su tipo
   router.get('/productos/:tipo', function (req, res, next) {
     db.query(
-      'SELECT * FROM productos where tipo=?',
+      'SELECT * FROM productos where tipo=? and diponible=1',
       [req.params.tipo],
 
       (error, results) => {
