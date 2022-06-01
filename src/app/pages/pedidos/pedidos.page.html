@@ -2,9 +2,20 @@
   <ion-toolbar>
     <ion-title>Pedidos</ion-title>
   </ion-toolbar>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+
+  </ion-refresher>
 </ion-header>
 
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
   <ion-list>
     <ion-item  *ngFor="let item of pedidos; let i =index">
       <ion-label id="{{i}}"  (click)="order(i)" >
@@ -14,4 +25,6 @@
     </ion-item>
 
   </ion-list>
+
+  
 </ion-content>

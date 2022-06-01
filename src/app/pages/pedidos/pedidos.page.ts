@@ -39,4 +39,23 @@ export class PedidosPage implements OnInit {
     this.menu.pedidoID=Number(pedidoID)
     this.presentModal()
   }
+
+  doRefresh(event) {
+    console.log('Begin async operation');
+    this.pedidos=[]
+ 
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      this.api.getOrderPay("pagado").subscribe((data)=>{
+        for(let item of data){
+          
+          this.pedidos.push("#"+item.id)
+          
+        }
+  
+      })
+      event.target.complete();
+    }, 2000);
+  }
+  
 }
