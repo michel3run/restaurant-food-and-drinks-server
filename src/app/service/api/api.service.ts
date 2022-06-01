@@ -56,6 +56,14 @@ export class ApiService {
      return this.http.post<any>(this.url+'/lineaPedidos',body,{'headers':headers})
   
     }
+
+    
+    updateCheck(disponible:string,id:number):Observable<listaPedidos[]>{
+      const headers = { 'content-type': 'application/json'} 
+    const body = { disponible: disponible ,id:id };
+     return this.http.post<any>(this.url+'/changeProduct',body,{'headers':headers})
+  
+    }
   //ejemplos
   getAllUser():Observable<listaUser[]>{
     return this.http.get<listaUser[]>(this.url);

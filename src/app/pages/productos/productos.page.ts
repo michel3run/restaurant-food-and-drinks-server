@@ -36,8 +36,21 @@ var disponible = document.getElementById(String(item.id)) as HTMLIonToggleElemen
    
   }
 
-  changeTest(i:string){
-    console.log(Number(i+1))
+  changeTest(event:any,id:number){
+    console.log(event.target.checked);
+    console.log(id)  
+    if(event.target.checked) {
+      this.api.updateCheck("1",id +1).subscribe()
+    } else{
+      
+      this.api.updateCheck("0",id +1 ).subscribe()
+    }
+   /* if (event.target.checked) {
+      this.api.updateCheck("0",id)
+
+    }else{
+      this.api.updateCheck("1",id)
+    }*/
   }
 
 }

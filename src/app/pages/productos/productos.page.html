@@ -10,7 +10,7 @@
       <ion-label >
         {{item}}
       </ion-label>
-      <ion-toggle id="i"  color="light" checked = "{{disponibles[i]}}" (ionChange)="changeTest(i)"></ion-toggle>
+      <ion-toggle id="i"  color="light" checked = "{{disponibles[i]}}" (ionChange)="changeTest($event,i)"></ion-toggle>
 
     </ion-item>
 
