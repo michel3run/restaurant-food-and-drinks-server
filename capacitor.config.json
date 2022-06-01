@@ -1,6 +1,6 @@
 {
 	"appId": "io.ionic.starter",
-	"appName": " restaurant-food-and-drinks-server",
+	"appName": "Restaurant food and drinks",
 	"webDir": "www",
 	"bundledWebRuntime": false
 }
