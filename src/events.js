@@ -179,6 +179,23 @@ function createRouter(db) {
         }
       );
     });
+
+      //change entregado pedido
+  router.post('/changeEntregado', (req, res, next) => {
+    db.query(
+      'UPDATE pedidos SET estado = ? WHERE id=?',
+      [req.body.estado, req.body.id],
+      (error) => {
+        if (error) {
+          console.error(error);
+          res.status(500).json({ status: 'error' });
+        } else {
+          res.status(200).json({ status: 'ok' });
+        }
+      }
+    );
+  });
+
   //ejemplos
   router.get('/user', function (req, res, next) {
     db.query(

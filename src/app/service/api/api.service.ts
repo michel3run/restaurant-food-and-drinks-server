@@ -75,6 +75,13 @@ export class ApiService {
       return this.http.get<listaProductos[]>(this.url + `/lineapedido/${idPedido}`);
   
     }
+    //Cambiar a entregado
+    postEntregado(estado:string,id:number):Observable<listaPedidos[]>{
+      const headers = { 'content-type': 'application/json'} 
+    const body = { estado: estado ,id:id };
+     return this.http.post<any>(this.url+'/changeEntregado',body,{'headers':headers})
+  
+    }
   //ejemplos
   getAllUser():Observable<listaUser[]>{
     return this.http.get<listaUser[]>(this.url);

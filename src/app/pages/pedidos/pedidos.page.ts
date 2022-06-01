@@ -34,7 +34,6 @@ export class PedidosPage implements OnInit {
     })
   }
   order(){
-    console.log("adsf")
     this.presentModal()
   }
 }
