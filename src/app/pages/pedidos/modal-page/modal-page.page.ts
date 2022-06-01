@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/service/api/api.service';
+import { MenuService } from 'src/app/service/menu/menu.service';
 
 @Component({
   selector: 'app-modal-page',
@@ -9,7 +10,7 @@ import { ApiService } from 'src/app/service/api/api.service';
 export class ModalPagePage implements OnInit {
   pedido = []
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService,private menu : MenuService) { }
 
   ngOnInit() {
     this.api.getTicket(29).subscribe((data) => {
@@ -37,7 +38,8 @@ export class ModalPagePage implements OnInit {
 
   }
   entregado(){
-    this.api.postEntregado("entregado",29).subscribe()
+    console.log(this.menu.pedidoID)
+    this.api.postEntregado("entregado",this.menu.pedidoID).subscribe()
     window.location.reload()
   }
 }

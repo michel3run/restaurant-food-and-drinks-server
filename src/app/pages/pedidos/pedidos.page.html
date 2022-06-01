@@ -7,7 +7,7 @@
 <ion-content>
   <ion-list>
     <ion-item  *ngFor="let item of pedidos; let i =index">
-      <ion-label (click)="order()" >
+      <ion-label id="{{i}}"  (click)="order(i)" >
         {{item}}
       </ion-label>
 

@@ -28,12 +28,15 @@ export class PedidosPage implements OnInit {
       for(let item of data){
         
         this.pedidos.push("#"+item.id)
-      
+        
       }
 
     })
   }
-  order(){
+  order(id:string){
+    let pedidoID = document.getElementById(id).textContent
+    pedidoID=pedidoID.substring(2,pedidoID.length)
+    this.menu.pedidoID=Number(pedidoID)
     this.presentModal()
   }
 }

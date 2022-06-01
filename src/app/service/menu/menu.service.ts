@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class MenuService {
   userID:number
+  pedidoID:number
   showMenu:boolean =false;
   constructor() {
    }
