@@ -9,7 +9,7 @@ import { MenuService } from 'src/app/service/menu/menu.service';
 })
 export class ModalPagePage implements OnInit {
   pedido = []
-
+  comentario=[]
   constructor(private api: ApiService,private menu : MenuService) { }
 
   ngOnInit() {
@@ -17,6 +17,7 @@ export class ModalPagePage implements OnInit {
     this.api.getTicket(this.menu.pedidoID).subscribe((data) => {
       for (let item of data) {
         this.pedido.push(item.nombre);
+        this.comentario.push(item.comentarios)
       }
 
       const resultado = {}
@@ -29,7 +30,7 @@ export class ModalPagePage implements OnInit {
       console.log(this.pedido)
       for (let i = 0; i < claves.length; i++) {
         let clave = claves[i];
-        this.pedido[i]= this.pedido[i] + " x "+resultado[clave] 
+        this.pedido[i]= this.pedido[i] + " x "+resultado[clave] +" comentario :"+this.comentario[i]
       }
 
     })
