@@ -82,6 +82,11 @@ export class ApiService {
      return this.http.post<any>(this.url+'/changeEntregado',body,{'headers':headers})
   
     }
+    
+    getUserOrder(idPedido:number):Observable<listaUser[]>{
+      return this.http.get<listaUser[]>(this.url + `/usuarioPedido/${idPedido}`);
+  
+    }
   //ejemplos
   getAllUser():Observable<listaUser[]>{
     return this.http.get<listaUser[]>(this.url);

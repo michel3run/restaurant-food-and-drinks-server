@@ -24,15 +24,32 @@ export class PedidosPage implements OnInit {
     return await modal.present();
   }
   ngOnInit() {
+    this.rellenarPedido()
+  }
+
+  rellenarPedido(){
     this.api.getOrderPay("pagado").subscribe((data)=>{
       for(let item of data){
         
-        this.pedidos.push("#"+item.id)
-        
-      }
-
+        // this.pedidos.push("#"+item.id)
+         this.api.getUserOrder(item.id).subscribe((data)=>{
+             for(let user of data){
+               if(this.pedidos.length==0){
+                 this.pedidos.push("#"+item.id + ` ${user.email}` )
+               }else{
+                 this.pedidos.push("#"+item.id + ` ${user.email}` )
+               }
+             }
+           
+ 
+         })
+ 
+       
+       }
     })
+
   }
+
   order(id:string){
     let pedidoID = document.getElementById(id).textContent
     pedidoID=pedidoID.substring(2,pedidoID.length)
@@ -46,14 +63,7 @@ export class PedidosPage implements OnInit {
  
     setTimeout(() => {
       console.log('Async operation has ended');
-      this.api.getOrderPay("pagado").subscribe((data)=>{
-        for(let item of data){
-          
-          this.pedidos.push("#"+item.id)
-          
-        }
-  
-      })
+      this.rellenarPedido()
       event.target.complete();
     }, 2000);
   }

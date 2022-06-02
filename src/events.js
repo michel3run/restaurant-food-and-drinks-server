@@ -179,6 +179,21 @@ function createRouter(db) {
         }
       );
     });
+//Buscar el cliente del ticket
+    router.get('/usuarioPedido/:idPedido', function (req, res, next) {
+      db.query(
+        'SELECT * FROM usuario JOIN pedidos ON usuario.id=pedidos.idUser WHERE pedidos.id=?	',
+        [req.params.idPedido],
+        (error, results) => {
+          if (error) {
+            console.log(error);
+            res.status(500).json({ status: 'error' });
+          } else {
+            res.status(200).json(results);
+          }
+        }
+      );
+    });
 
       //change entregado pedido
   router.post('/changeEntregado', (req, res, next) => {
