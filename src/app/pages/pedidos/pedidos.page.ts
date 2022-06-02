@@ -25,13 +25,13 @@ export class PedidosPage implements OnInit {
   }
   ngOnInit() {
     this.rellenarPedido()
+    this.pedidos=this.pedidos.sort()
   }
 
   rellenarPedido(){
     this.api.getOrderPay("pagado").subscribe((data)=>{
       for(let item of data){
         
-        // this.pedidos.push("#"+item.id)
          this.api.getUserOrder(item.id).subscribe((data)=>{
              for(let user of data){
                if(this.pedidos.length==0){
@@ -52,7 +52,7 @@ export class PedidosPage implements OnInit {
 
   order(id:string){
     let pedidoID = document.getElementById(id).textContent
-    pedidoID=pedidoID.substring(2,pedidoID.length)
+    pedidoID=pedidoID.substring(2,4)
     this.menu.pedidoID=Number(pedidoID)
     this.presentModal()
   }
@@ -64,7 +64,7 @@ export class PedidosPage implements OnInit {
     setTimeout(() => {
       console.log('Async operation has ended');
       this.rellenarPedido()
-      this.pedidos.sort()
+      this.pedidos=this.pedidos.sort()
       event.target.complete();
     }, 2000);
   }
