@@ -155,8 +155,8 @@ function createRouter(db) {
   //insertar lineapedidos
   router.post('/lineaPedidos', (req, res, next) => {
     db.query(
-      'INSERT INTO lineapedidos(idPedidos,idProductos)  VALUES (?,?)',
-      [req.body.idPedidos, req.body.idProductos],
+      'INSERT INTO lineapedidos(idPedidos,idProductos,comentarios)  VALUES (?,?,?)',
+      [req.body.idPedidos, req.body.idProductos,req.body.comentarios],
       (error) => {
         if (error) {
           console.error(error);
