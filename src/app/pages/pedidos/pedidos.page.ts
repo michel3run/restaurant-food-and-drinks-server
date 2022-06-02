@@ -52,7 +52,7 @@ export class PedidosPage implements OnInit {
 
   order(id:string){
     let pedidoID = document.getElementById(id).textContent
-    pedidoID=pedidoID.substring(2,4)
+    pedidoID=pedidoID.substring(pedidoID.indexOf("#")+1,pedidoID.indexOf(" ",1))
     this.menu.pedidoID=Number(pedidoID)
     this.presentModal()
   }
