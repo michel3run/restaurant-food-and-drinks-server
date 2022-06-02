@@ -37,7 +37,7 @@ function createRouter(db) {
       }
     );
   });
-  //Listar todos los productos 
+  //Listar todos los productos  por tipo
   router.get('/productosAll', function (req, res, next) {
     db.query(
       'SELECT * FROM productos',
@@ -53,10 +53,29 @@ function createRouter(db) {
       }
     );
   });
+
+  
+
+  router.get('/productosPlato/:plato', function (req, res, next) {
+    db.query(
+      'SELECT * FROM productos where nombre=?',
+      [req.params.plato],
+
+      (error, results) => {
+        if (error) {
+          console.log(error);
+          res.status(500).json({ status: 'error' });
+        } else {
+          res.status(200).json(results);
+        }
+      }
+    );
+  });
+
   //Listar todos los productos segun su tipo
   router.get('/productos/:tipo', function (req, res, next) {
     db.query(
-      'SELECT * FROM productos where tipo=? and diponible=1',
+      'SELECT * FROM productos where tipo=? ',
       [req.params.tipo],
 
       (error, results) => {
