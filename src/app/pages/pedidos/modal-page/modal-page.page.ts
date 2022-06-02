@@ -30,7 +30,7 @@ export class ModalPagePage implements OnInit {
       console.log(this.pedido)
       for (let i = 0; i < claves.length; i++) {
         let clave = claves[i];
-        this.pedido[i]= this.pedido[i] + " x "+resultado[clave] +" comentario :"+this.comentario[i]
+        this.pedido[i]= this.pedido[i] + " x "+resultado[clave] +" comentario :"+this.comentario[i] 
       }
 
     })
