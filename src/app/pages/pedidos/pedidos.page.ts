@@ -64,6 +64,7 @@ export class PedidosPage implements OnInit {
     setTimeout(() => {
       console.log('Async operation has ended');
       this.rellenarPedido()
+      this.pedidos.sort()
       event.target.complete();
     }, 2000);
   }
