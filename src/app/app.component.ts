@@ -10,8 +10,8 @@ import { CookiesService } from './service/cookie/cookies.service';
 })
 export class AppComponent  {
   public appPages = [
-    { title: 'Pedidos', url: 'pedidos', icon: 'paper-plane' },
-    { title: 'Productos', url: 'productos', icon: 'heart' }
+    { title: 'Pedidos', url: 'pedidos', icon: 'list-outline' },
+    { title: 'Productos', url: 'productos', icon: 'fast-food-outline' }
   ];
   constructor(private cookieService: CookiesService,private router: Router,private menu :MenuService,) {
   }
