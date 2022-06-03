@@ -170,7 +170,7 @@ function createRouter(db) {
   //change disponible produc
   router.post('/changeProduct', (req, res, next) => {
     db.query(
-      'UPDATE productos SET diponible = ? WHERE id=?',
+      'UPDATE productos SET disponible = ? WHERE id=?',
       [req.body.disponible, req.body.id],
       (error) => {
         if (error) {

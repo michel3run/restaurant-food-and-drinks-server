@@ -18,7 +18,7 @@ export class ProductosPage implements OnInit {
     this.api.getProductAll().subscribe((data) => {
       for (let item of data) {
         this.productos.push(item.nombre);
-        if(item.diponible=="1"){
+        if(item.disponible=="1"){
           this.disponibles.push(true)
 
         }else{
