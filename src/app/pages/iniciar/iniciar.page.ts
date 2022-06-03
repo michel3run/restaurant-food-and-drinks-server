@@ -27,15 +27,6 @@ export class IniciarPage implements OnInit {
 
   login() {
 
-    /* this.api.getAllUser().subscribe(data=>{
-       console.log(data)
-     })*/
-    /*
-      this.api.getUser("michel@gmail.com").subscribe((data)=>{
-        console.log(data)
-      })*/
-
-    //this.api.postUser("login", "contraseña").subscribe()
     const email = (document.getElementById("email") as HTMLInputElement).value;
     const password = (document.getElementById("password") as HTMLInputElement).value;
 
