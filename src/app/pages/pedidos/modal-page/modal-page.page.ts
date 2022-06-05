@@ -9,15 +9,16 @@ import { MenuService } from 'src/app/service/menu/menu.service';
 })
 export class ModalPagePage implements OnInit {
   pedido = []
-  comentario=[]
+  comentario="No hay comentarios"
   constructor(private api: ApiService,private menu : MenuService) { }
 
   ngOnInit() {
     console.log(this.menu.pedidoID)
     this.api.getTicket(this.menu.pedidoID).subscribe((data) => {
+      console.log(data)
       for (let item of data) {
         this.pedido.push(item.nombre);
-        this.comentario.push(item.comentarios)
+        //this.comentario = item.comentarios;
       }
 
       const resultado = {}
@@ -34,6 +35,9 @@ export class ModalPagePage implements OnInit {
        
       }
 
+    })
+    this.api.getComent(this.menu.pedidoID).subscribe((data)=>{
+      this.comentario = data[0].comentarios
     })
   }
 

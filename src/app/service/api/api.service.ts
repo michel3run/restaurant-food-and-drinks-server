@@ -75,6 +75,13 @@ export class ApiService {
       return this.http.get<listaProductos[]>(this.url + `/lineapedido/${idPedido}`);
   
     }
+
+    
+    getComent(idPedido:number):Observable<listaPedidos[]>{
+      return this.http.get<listaPedidos[]>(this.url + `/pedidosComentario/${idPedido}`);
+  
+    }
+
     //Cambiar a entregado
     postEntregado(estado:string,id:number):Observable<listaPedidos[]>{
       const headers = { 'content-type': 'application/json'} 

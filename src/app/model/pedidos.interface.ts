@@ -3,5 +3,6 @@ export interface listaPedidos{
     idUser:number;
     fecha:string;
     estado:string;
+    comentarios:string;
     total:number;
 }
