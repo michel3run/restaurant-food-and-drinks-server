@@ -12,7 +12,7 @@ export class ProductosPage implements OnInit {
   disponibles = []
   constructor(private menu: MenuService, private api: ApiService) {
   }
-
+  
   ngOnInit() {
     this.menu.showMenu = true
     this.api.getProductAll().subscribe((data) => {
@@ -32,22 +32,18 @@ export class ProductosPage implements OnInit {
     })
    
   }
-
+  //funcion cuando hacemos click le pasamos el id y le suammos 1 aparecen por orden de la bbdd
   changeTest(event:any,id:number){
     console.log(event.target.checked);
     console.log(id)  
+    //cambiamso el campo de disponible del producto
     if(event.target.checked) {
       this.api.updateCheck("1",id +1).subscribe()
     } else{
       
       this.api.updateCheck("0",id +1 ).subscribe()
     }
-   /* if (event.target.checked) {
-      this.api.updateCheck("0",id)
 
-    }else{
-      this.api.updateCheck("1",id)
-    }*/
   }
 
 }

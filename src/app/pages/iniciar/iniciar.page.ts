@@ -19,6 +19,7 @@ export class IniciarPage implements OnInit {
   ngOnInit() {
 
   }
+  // error por introducir mal las credenciales
   async errorToast() {
     const toast = await this.toastController.create({
       message: 'Error el usuario o contraseña son incorrectos.',
@@ -26,7 +27,7 @@ export class IniciarPage implements OnInit {
     });
     toast.present();
   }
-
+//Funcion login funciona como el cliente
   login() {
 
     const email = (document.getElementById("email") as HTMLInputElement).value;
@@ -47,6 +48,7 @@ export class IniciarPage implements OnInit {
     
 
   }
+  //Pasar a md5
   getMD5(value: string): string {
     const hash =  new JsHashes.MD5;
     return hash.hex(value);

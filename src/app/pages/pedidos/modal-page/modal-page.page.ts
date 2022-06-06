@@ -8,11 +8,13 @@ import { MenuService } from 'src/app/service/menu/menu.service';
   styleUrls: ['./modal-page.page.scss'],
 })
 export class ModalPagePage implements OnInit {
+  //Para mostar el pedido
   pedido = []
   comentario="No hay comentarios"
   constructor(private api: ApiService,private menu : MenuService) { }
 
   ngOnInit() {
+    //Al iniciar recorremos buscamos el pedido por el id del pedido y buscamos lo productos de linea pedidos
     console.log(this.menu.pedidoID)
     this.api.getTicket(this.menu.pedidoID).subscribe((data) => {
       console.log(data)
@@ -44,6 +46,7 @@ export class ModalPagePage implements OnInit {
   cerrar(){
 
   }
+  //Cuando le das al boton entregado
   entregado(){
     console.log(this.menu.pedidoID)
     this.api.postEntregado("entregado",this.menu.pedidoID).subscribe()

@@ -23,11 +23,12 @@ export class PedidosPage implements OnInit {
     });
     return await modal.present();
   }
+  // Al inicaira el pedido rellenamos pedidos para mostrarle al usuario
   ngOnInit() {
     this.rellenarPedido()
     this.pedidos=this.pedidos.sort()
   }
-
+//Buscamos los pedidos pagados
   rellenarPedido(){
     this.api.getOrderPay("pagado").subscribe((data)=>{
       for(let item of data){
@@ -49,14 +50,14 @@ export class PedidosPage implements OnInit {
     })
 
   }
-
+//ordenamos los pedidos
   order(id:string){
     let pedidoID = document.getElementById(id).textContent
     pedidoID=pedidoID.substring(pedidoID.indexOf("#")+1,pedidoID.indexOf(" ",1))
     this.menu.pedidoID=Number(pedidoID)
     this.presentModal()
   }
-
+//Funcion cuando arrastramos y refrescamos
   doRefresh(event) {
     console.log('Begin async operation');
     this.pedidos=[]
