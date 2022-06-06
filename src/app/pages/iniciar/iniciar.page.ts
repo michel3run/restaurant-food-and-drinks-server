@@ -4,6 +4,8 @@ import { ToastController } from '@ionic/angular';
 import { CookiesService } from 'src/app/service/cookie/cookies.service';
 import { MenuService } from 'src/app/service/menu/menu.service';
 import { ApiService } from '../../service/api/api.service';
+import * as JsHashes  from 'jshashes';
+
 @Component({
   selector: 'app-iniciar',
   templateUrl: './iniciar.page.html',
@@ -28,8 +30,8 @@ export class IniciarPage implements OnInit {
   login() {
 
     const email = (document.getElementById("email") as HTMLInputElement).value;
-    const password = (document.getElementById("password") as HTMLInputElement).value;
-
+    let password = (document.getElementById("password") as HTMLInputElement).value;
+    password = this.getMD5(password)
     this.api.login(email, password).subscribe((data => {
       console.log(data)
       if (data.length == 1) {
@@ -45,5 +47,9 @@ export class IniciarPage implements OnInit {
     
 
   }
+  getMD5(value: string): string {
+    const hash =  new JsHashes.MD5;
+    return hash.hex(value);
+ }
 
 }
